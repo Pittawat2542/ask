@@ -1,7 +1,7 @@
 version: '2'
 services:
     node:
-      image: nginx
+      build: ./build/node
       volumes:
         - ./src:/usr/src/app
       ports:
