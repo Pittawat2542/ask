@@ -1,6 +1,5 @@
 version: "2"
 services:
-<<<<<<< HEAD
       nodejs:
             build: ./nodejs
             ports:
@@ -29,11 +28,3 @@ services:
               - mysql:db
             ports:
               - 8080:80
-=======
-    node:
-      build: ./build/node
-      volumes:
-        - ./src:/usr/src/app
-      ports:
-        - 8081:80
->>>>>>> 30723a588fb2022a7e0a9fe29dbeba6b638422e6
