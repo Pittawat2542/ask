@@ -1,1 +1,8 @@
-
+version: '2'
+services:
+    node:
+      image: nginx
+      volumes:
+        - ./src:/usr/src/app
+      ports:
+        - 8081:80
