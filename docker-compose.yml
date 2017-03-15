@@ -1,7 +1,7 @@
 version: "2"
 services:
       nodejs:
-            build: ./nodejs
+            build: ./build/nodejs
             ports:
                 - 5000:5000
             depends_on:
@@ -13,7 +13,6 @@ services:
               - mysql
       mysql:
             image: mysql:5.7
-            container_name: mysql
             volumes:
               - ./build/mysql:/docker-entrypoint-initdb.d
               - ./tmp/mysql:/var/lib/mysql
