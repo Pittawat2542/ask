@@ -1,3 +1,6 @@
-FROM node:4-onbuild
-# replace this with your application's default port
-EXPOSE 8888
+FROM node:6.2.2
+RUN mkdir /src
+COPY src /src/
+WORKDIR /src
+ENTRYPOINT ["node","server.js"]
+EXPOSE 5000
