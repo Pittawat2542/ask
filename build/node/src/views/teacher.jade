@@ -1,4 +1,4 @@
-extends ./layout/default.jade
+extends ./layout/teacher.jade
 
 block content
   div.teacher
@@ -26,6 +26,11 @@ block content
     div.container.questions
       div.row
         div.col-xs-12
-          ul.list-group
+          h1 คำถาม!
+          ul.list-group.questions-list
+      div.row
+        div.col-xs-12
+          h3 คำถามที่ถูกตอบไปแล้ว!
+          ul.list-group.done
 
   script(src='/javascript/teacher.js')

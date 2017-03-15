@@ -18,7 +18,7 @@ $(document).ready(function() {
                 url: "/question/id/" + id ,
             }).done(function(data) {
                 var item = {
-                    text: data.question+"?",
+                    text: data.question,
                     weight: Math.floor(((Math.random()*3)+10))
                 };
                 words.push(item);

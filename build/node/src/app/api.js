@@ -97,7 +97,7 @@ app.post('/question/',function(req,res){
         attendee: req.body.attendee,
       })
     .then(function(data){
-      console.log("[Sended Question] : ",data);
+      console.log("[-- Sended Question --] #" + data + " " + req.body.content + " : " + req.body.attendee);
       req.app.io.emit('teacher',{success: true});
       setTimeout(function(){
         res.json({ success: true, response: data});
@@ -120,10 +120,8 @@ app.post('/question/selects',function(req,res){
     })
     .update({
       status: 1
-    }).then(function(data){
-      knex('questions').where({id: element}).select('std_id').then(function(data){
-        req.app.io.emit('asker',{ std_id : data[0].std_id });
-      })
+    }).then(function(item){
+      console.log("[-- Choosen Question --] #" + element);
     });
 
     if(index == data.length-1){
@@ -135,28 +133,21 @@ app.post('/question/selects',function(req,res){
 });
 
 app.post('/question/delete',function(req,res){
-  // .. ส่งคำถามขึ้นหน้าจอ
-  var data = req.body.data;
+  // .. ลบคำถาม
+  var data = req.body;
 
-  data.forEach(function(element, index){
-    var x = knex('questions')
-    .where({
-      id: element
-    })
-    .update({
-      status: 2
-    }).then(function(data){
-      knex('questions').where({id: element}).select('std_id').then(function(data){
-        req.app.io.emit('asker',{ std_id : data[0].std_id });
-      })
-    });
-
-    if(index == data.length-1){
-      res.json({ success: true, response: data});
-      req.app.io.emit('teacher',{ refresh : true});
-      req.app.io.emit('presentation',{ data : data });
-    }
+  var x = knex('questions')
+  .where({
+    id: data.id
+  })
+  .update({
+    status: 2
+  }).then(function(data){
+    console.log("[-- Delete Question --] #" + data.id);
+    res.json({ success: true, response: data});
+    req.app.io.emit('teacher',{ refresh : true});
   });
+
 });
 
 // # PRESENTATION API #

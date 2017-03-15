@@ -30,6 +30,7 @@ $(document).ready(function() {
           $('.logout').addClass('active');
       },500);
 
+      socket.emit('attendee', window.attendee);
       $('.main .name span').text(' คุณ'+window.attendee.name);
     }
   });
