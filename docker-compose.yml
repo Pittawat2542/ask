@@ -9,8 +9,6 @@ services:
             command: 'node /src/server.js'
       php:
             build: ./build/php
-            volumes:
-              - ./src:/var/www/html
             links:
               - mysql
       mysql:
