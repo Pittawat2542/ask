@@ -3,7 +3,7 @@ services:
       node:
             build: ./build/node
             ports:
-                - 5000:5000
+                - 80:5000
             depends_on:
                 - mysql
             command: 'node /src/server.js'

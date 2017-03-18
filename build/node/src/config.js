@@ -2,7 +2,7 @@ var config = {
   db : {
     client: 'mysql',
     connection: {
-      host     : '127.0.0.1',
+      host     : '172.19.0.5',
       user     : 'root',
       password : 'ask',
       database : 'ask',
