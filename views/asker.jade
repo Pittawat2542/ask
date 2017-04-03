@@ -14,14 +14,8 @@ block content
                 div.input-group.name
                   span.input-group-addon
                     i.fa.fa-user
-                    span.title ชื่อจริง
-                  input.form-control(type="text",name='name',placeholder="eg. กรรชัย สดหอม",value="")
-              div.form-group
-                div.input-group.position
-                  span.input-group-addon
-                    i.fa.fa-briefcase
-                    span.title ตำแหน่ง
-                  input.form-control(type="text",name='position',placeholder="eg. นักพัฒนาโปรแกรม",value="")
+                    span.title รหัสนักศึกษา
+                  input.form-control(type="ืีnumber",name='name',placeholder="eg. 12345678901",value="" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="11")
               div.form-group
                 input.btn.btn-primary.btn-block.pull-right.login-btn(type="submit",value="เข้าสู่ระบบ")
           p.credit Powered by #Alchemist

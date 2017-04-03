@@ -17,9 +17,21 @@ $(document).ready(function() {
 
     });
 
+    socket.on('ans', function (data) {
+        //TODO Add ID to list under Question that Active
+    });
+
+    $('.start-round').click(function () {
+        socket.emit('start', 1);
+    })
+
+    $('.end-round').click(function () {
+        socket.emit('start', 0);
+    })
+
     var question = function(id,data,atd){
         return "<li class=\"list-group-item question\" data-id=\""+ id +"\"><p>"+ data +
-              "</p><div class=\"atd text-right\">ผู้ถาม: "+atd+
+              "</p><div class=\"atd text-right\">ID: "+atd+
               "</div><div class=\"delete-btn\"><i class=\"fa fa-trash\"></i></div></li>";
     }
 
@@ -116,6 +128,8 @@ $(document).ready(function() {
                             });
                         }
                     });
+
+                    socket.emit('ans',[]);
                 }
             });
         }else{
@@ -167,4 +181,5 @@ $(document).ready(function() {
     render();
 
     // end.
+
 });
