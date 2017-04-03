@@ -28,4 +28,9 @@ app.get('/presentation/', function(req, res) {
   res.render('presentation', content);
 });
 
+app.get('/result/', function (req, res) {
+  var content = {};
+  res.render('result', content);
+});
+
 module.exports = app;
